@@ -1,20 +1,21 @@
 class RockPaperScissors
 
-  def initialize(input_option1, input_option2)
-    @option1 = input_option1
-    @option2 = input_option2
-  end
+  def self.duel(player1, player2)
 
-  def duel()
-    if (@option1 == 'rock' || @option2 == 'rock') && (@option1 == 'paper' || @option2 == 'paper')
-      return "Paper wins!"
-    elsif (@option1 == 'paper' || @option2 == 'paper') && (@option1 == 'scissors' || @option2 == 'scissors')
-      return "Scissors win!"
-    elsif (@option1 == 'rock' || @option2 == 'rock') && (@option1 == 'scissors' || @option2 == 'scissors')
-      return "Rock wins!"
-    else
+    win = {
+      'rock' => 'scissors',
+      'scissors' => 'paper',
+      'paper' => 'rock'
+    }
+
+    if win[player1] == player2
+      return "Player 1 wins by playing #{player1}!"
+    elsif player1 == player2
       return "It's a draw!"
+    else
+      return "Player 2 wins by playing #{player2}!"
     end
+
   end
 
 end

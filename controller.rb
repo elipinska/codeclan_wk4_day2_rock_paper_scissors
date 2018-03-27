@@ -4,8 +4,7 @@ require_relative('models/rock_paper_scissors')
 
 
 get('/:option1/:option2') do
-  game = RockPaperScissors.new(params[:option1], params[:option2])
-  @result = game.duel()
+  @result = RockPaperScissors.duel(params[:option1], params[:option2])
   erb(:result)
 end
 

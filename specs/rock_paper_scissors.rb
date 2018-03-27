@@ -4,37 +4,24 @@ require_relative('../models/rock_paper_scissors')
 class RPSGameTest < MiniTest::Test
 
   def test_rps__rock_wins_with_scissors
-    game1 = RockPaperScissors.new('rock', 'scissors')
-    game2 = RockPaperScissors.new('scissors', 'rock')
-
-    assert_equal('Rock wins!', game1.duel())
-    assert_equal('Rock wins!', game2.duel())
+    assert_equal('Player 1 wins by playing rock!', RockPaperScissors.duel('rock', 'scissors'))
+    assert_equal('Player 2 wins by playing rock!', RockPaperScissors.duel('scissors', 'rock'))
   end
 
   def test_rps__paper_wins_with_rock
-    game1 = RockPaperScissors.new('rock', 'paper')
-    game2 = RockPaperScissors.new('paper', 'rock')
-
-    assert_equal('Paper wins!', game1.duel())
-    assert_equal('Paper wins!', game2.duel())
+    assert_equal('Player 2 wins by playing paper!', RockPaperScissors.duel('rock', 'paper'))
+    assert_equal('Player 1 wins by playing paper!', RockPaperScissors.duel('paper', 'rock'))
   end
 
   def test_rps__scissors_win_with_paper
-    game1 = RockPaperScissors.new('scissors', 'paper')
-    game2 = RockPaperScissors.new('paper', 'scissors')
-
-    assert_equal('Scissors win!', game1.duel())
-    assert_equal('Scissors win!', game2.duel())
+    assert_equal('Player 1 wins by playing scissors!', RockPaperScissors.duel('scissors', 'paper'))
+    assert_equal('Player 2 wins by playing scissors!', RockPaperScissors.duel('paper', 'scissors'))
   end
 
   def test_rps__draw
-    game1 = RockPaperScissors.new('scissors', 'scissors')
-    game2 = RockPaperScissors.new('paper', 'paper')
-    game3 = RockPaperScissors.new('rock', 'rock')
-
-    assert_equal('It\'s a draw!', game1.duel())
-    assert_equal('It\'s a draw!', game2.duel())
-    assert_equal('It\'s a draw!', game3.duel())
+    assert_equal('It\'s a draw!', RockPaperScissors.duel('scissors', 'scissors'))
+    assert_equal('It\'s a draw!', RockPaperScissors.duel('paper', 'paper'))
+    assert_equal('It\'s a draw!', RockPaperScissors.duel('rock', 'rock'))
   end
 
 end
